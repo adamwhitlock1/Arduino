@@ -25,7 +25,7 @@ void loop() {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print(potVal);
-    if (potVal < 341 ) {
+    if (potVal < 341 && potVal > 0 ) {
       digitalWrite(greenPin,HIGH);
       digitalWrite(bluePin,LOW);
       digitalWrite(redPin,LOW);
