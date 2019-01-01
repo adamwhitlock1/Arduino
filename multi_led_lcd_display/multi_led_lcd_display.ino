@@ -7,9 +7,11 @@ int switchPin = 8;
 boolean lastButton = LOW;
 boolean currentButton = LOW;
 int ledCount = 0;
-int redPin = 6;
+int redPin = 1;
 int greenPin = 10;
 int bluePin = 9;
+int potPin = 2;
+int potVal = 0;
 
 void setup() {
   // set up the LCD's number of columns and rows:
@@ -41,6 +43,14 @@ void loop() {
     } else {
       digitalWrite(greenPin,LOW);
     }
+
+    potVal = analogRead(potPin);
+    delay(100);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print(potVal);
+    delay(250);
+    
   
   if ( lastButton == LOW  && currentButton == HIGH ) {
     ledCount = ledCount + 1;
