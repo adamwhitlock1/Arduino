@@ -55,7 +55,7 @@ void loop() {
     }
 
     if (potVal == 0 ) {
-            digitalWrite(greenPin,HIGH);
+      digitalWrite(greenPin,LOW);
       digitalWrite(bluePin,LOW);
       digitalWrite(redPin,LOW);
       lcd.setCursor(0, 1);
