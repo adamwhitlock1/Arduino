@@ -12,6 +12,7 @@ int potVal = 0;
 void setup() {
   // set up the LCD's number of columns and rows:
   analogWrite(6,Contrast);
+  lcd.begin(16, 2);
   pinMode(redPin, OUTPUT);
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
@@ -28,29 +29,37 @@ void loop() {
       digitalWrite(greenPin,HIGH);
       digitalWrite(bluePin,LOW);
       digitalWrite(redPin,LOW);
-      lcd.setCursor(1, 1);
+      lcd.setCursor(0, 1);
       lcd.print("LOW    ");
     }
     if (potVal > 341 ) {
       digitalWrite(greenPin,LOW);
       digitalWrite(bluePin,HIGH);
       digitalWrite(redPin,LOW);
-      lcd.setCursor(1, 1);
+      lcd.setCursor(0, 1);
       lcd.print("MED   ");
     }
     if (potVal > 682 ) {
       digitalWrite(greenPin,LOW);
       digitalWrite(bluePin,LOW);
       digitalWrite(redPin,HIGH);
-      lcd.setCursor(1, 1);
+      lcd.setCursor(0, 1);
       lcd.print("HIGH  ");
     }
     if (potVal == 1023 ) {
       digitalWrite(greenPin,HIGH);
       digitalWrite(bluePin,HIGH);
       digitalWrite(redPin,HIGH);
-      lcd.setCursor(1, 1);
+      lcd.setCursor(0, 1);
       lcd.print("MAX   ");
+    }
+
+    if (potVal == 0 ) {
+            digitalWrite(greenPin,HIGH);
+      digitalWrite(bluePin,LOW);
+      digitalWrite(redPin,LOW);
+      lcd.setCursor(0, 1);
+      lcd.print("OFF   ");
     }
     
     delay(500);
