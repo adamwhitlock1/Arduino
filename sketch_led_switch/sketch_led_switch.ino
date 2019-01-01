@@ -22,7 +22,7 @@ boolean debounce(boolean last) {
 void loop() {
   currentButton = debounce(lastButton);
   if ( lastButton == LOW  && currentButton == HIGH ) {
-    ledLevel = ledLevel + 5;
+    ledLevel = ledLevel + 85;
   }
   lastButton = currentButton;
   if (ledLevel > 255) ledLevel = 0;
